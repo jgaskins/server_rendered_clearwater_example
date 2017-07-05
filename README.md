@@ -1,24 +1,10 @@
-# README
+# Server-rendered Clearwater example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To server-render a Clearwater app with Rails:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [Add `app/shared` to your Ruby load path](https://github.com/jgaskins/server_rendered_clearwater_example/blob/master/config/application.rb#L15)
+- [Add `app/shared` to the Sprockets load path](https://github.com/jgaskins/server_rendered_clearwater_example/blob/master/config/initializers/assets.rb#L10)
+- [Write your shared components in `app/shared`](https://github.com/jgaskins/server_rendered_clearwater_example/blob/master/app/shared/components/layout.rb)
+- Rename `app/assets/javascripts/application.js` to [`app/assets/javascripts/application.rb`](https://github.com/jgaskins/server_rendered_clearwater_example/blob/master/app/assets/javascripts/application.rb)
+- [Add a Rails controller that instantiates your app on the server similar to the client app](https://github.com/jgaskins/server_rendered_clearwater_example/blob/master/app/controllers/home_controller.rb)
+  - [Make sure to pass a router with its location set to the request](https://github.com/jgaskins/server_rendered_clearwater_example/blob/master/app/controllers/home_controller.rb#L7)
